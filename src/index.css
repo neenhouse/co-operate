@@ -152,6 +152,11 @@ input:focus, select:focus, textarea:focus {
   background: var(--accent-hover);
 }
 
+.btn-primary:active {
+  transform: translateY(1px);
+  background: var(--accent);
+}
+
 .btn-secondary {
   background: var(--surface-2);
   color: var(--text-primary);
@@ -163,6 +168,10 @@ input:focus, select:focus, textarea:focus {
   background: var(--surface-3);
 }
 
+.btn-secondary:active {
+  transform: translateY(1px);
+}
+
 .btn-ghost {
   background: transparent;
   color: var(--text-primary);
@@ -172,6 +181,10 @@ input:focus, select:focus, textarea:focus {
 .btn-ghost:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+.btn-ghost:active {
+  transform: translateY(1px);
 }
 
 .btn-sm {
@@ -221,7 +234,7 @@ input:focus, select:focus, textarea:focus {
 
 /* Utility: Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, #a8e063 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -244,6 +257,84 @@ input:focus, select:focus, textarea:focus {
   height: 1px;
   background: var(--border);
   border: none;
+}
+
+/* Landing header nav links */
+.landing-nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color var(--transition);
+  position: relative;
+}
+
+.landing-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+}
+
+.landing-nav-link:hover {
+  color: var(--text-primary);
+}
+
+.landing-nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Vote card hover in dashboard */
+.vote-card-link {
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  display: block;
+  transition: border-color 150ms ease, background 150ms ease, transform 100ms ease;
+}
+
+.vote-card-link:hover {
+  border-color: var(--accent);
+  background: var(--surface-3);
+}
+
+.vote-card-link:active {
+  transform: translateY(1px);
+}
+
+/* Sidebar nav hover */
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 150ms ease, background 150ms ease;
+  border-left: 3px solid transparent;
+  transition: all 150ms ease;
+}
+
+.sidebar-nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.sidebar-nav-link.active {
+  color: var(--accent);
+  background: rgba(202, 138, 4, 0.08);
+  border-left-color: var(--accent);
 }
 
 /* Scrollbar styling */

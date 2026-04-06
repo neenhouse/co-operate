@@ -14,8 +14,8 @@ export default function LandingLayout() {
             <span style={styles.brandName}>CoOperate</span>
           </Link>
           <nav style={styles.nav}>
-            <a href="#features" style={styles.navLink}>Features</a>
-            <a href="#testimonials" style={styles.navLink}>Testimonials</a>
+            <a href="#features" className="landing-nav-link">Features</a>
+            <a href="#testimonials" className="landing-nav-link">Testimonials</a>
             <Link to="/app" className="btn btn-primary btn-sm">Launch App</Link>
           </nav>
         </div>
@@ -32,9 +32,9 @@ export default function LandingLayout() {
             <span style={styles.footerBrandName}>CoOperate</span>
           </div>
           <div style={styles.footerLinks}>
-            <a href="#features" style={styles.footerLink}>Features</a>
-            <a href="#testimonials" style={styles.footerLink}>Testimonials</a>
-            <Link to="/app" style={styles.footerLink}>Dashboard</Link>
+            <a href="#features" className="landing-nav-link">Features</a>
+            <a href="#testimonials" className="landing-nav-link">Testimonials</a>
+            <Link to="/app" className="landing-nav-link">Dashboard</Link>
           </div>
           <div style={styles.copyright}>
             &copy; 2026 CoOperate. Built for worker-owners, by worker-owners.

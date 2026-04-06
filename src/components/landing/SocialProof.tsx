@@ -69,7 +69,7 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 28,
     fontWeight: 700,
     fontFamily: "'Space Grotesk', sans-serif",
-    color: '#ca8a04',
+    color: '#f0f0f5',
     marginBottom: 4,
   },
   statLabel: {

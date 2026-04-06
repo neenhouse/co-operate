@@ -22,7 +22,8 @@ export default function HeroSection() {
           </a>
         </div>
       </div>
-      <div style={styles.glow} />
+      <div style={styles.glowAmber} />
+      <div style={styles.glowGreen} />
     </section>
   );
 }
@@ -60,14 +61,24 @@ const styles: Record<string, React.CSSProperties> = {
     justifyContent: 'center',
     flexWrap: 'wrap',
   },
-  glow: {
+  glowAmber: {
     position: 'absolute',
-    top: '50%',
-    left: '50%',
+    top: '30%',
+    left: '35%',
     transform: 'translate(-50%, -50%)',
-    width: 600,
-    height: 600,
-    background: 'radial-gradient(circle, rgba(202,138,4,0.08) 0%, transparent 70%)',
+    width: 500,
+    height: 400,
+    background: 'radial-gradient(ellipse, rgba(202,138,4,0.1) 0%, transparent 65%)',
+    pointerEvents: 'none',
+  },
+  glowGreen: {
+    position: 'absolute',
+    top: '55%',
+    left: '65%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    height: 350,
+    background: 'radial-gradient(ellipse, rgba(22,163,74,0.07) 0%, transparent 65%)',
     pointerEvents: 'none',
   },
 };

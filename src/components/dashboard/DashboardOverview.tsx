@@ -63,7 +63,7 @@ export default function DashboardOverview() {
           <h2 style={styles.sectionTitle}>Upcoming Votes</h2>
           <div style={styles.votesList}>
             {activeProposals.slice(0, 4).map((p) => (
-              <Link key={p.id} to="/app/governance" style={styles.voteCard}>
+              <Link key={p.id} to="/app/governance" className="vote-card-link">
                 <div style={styles.voteTitle}>{p.title}</div>
                 <div style={styles.voteMeta}>
                   <span className="badge badge-green">{p.votesFor + p.votesAgainst + p.votesAbstain}/{p.totalEligible} voted</span>
@@ -166,15 +166,6 @@ const styles: Record<string, React.CSSProperties> = {
     display: 'flex',
     flexDirection: 'column',
     gap: 12,
-  },
-  voteCard: {
-    padding: 16,
-    borderRadius: 8,
-    background: '#252536',
-    border: '1px solid #2a2a3e',
-    textDecoration: 'none',
-    display: 'block',
-    transition: 'border-color 150ms ease',
   },
   voteTitle: {
     fontSize: 14,

@@ -29,10 +29,7 @@ export default function Sidebar() {
             key={item.to}
             to={item.to}
             end={item.end}
-            style={({ isActive }) => ({
-              ...styles.navLink,
-              ...(isActive ? styles.navLinkActive : {}),
-            })}
+            className={({ isActive }) => `sidebar-nav-link${isActive ? ' active' : ''}`}
           >
             <item.icon />
             {item.label}

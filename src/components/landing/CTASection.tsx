@@ -36,8 +36,9 @@ const styles: Record<string, React.CSSProperties> = {
     textAlign: 'center',
     padding: '64px 48px',
     borderRadius: 20,
-    border: '1px solid #2a2a3e',
-    background: 'linear-gradient(135deg, rgba(202,138,4,0.06) 0%, rgba(168,85,247,0.04) 100%)',
+    border: '1px solid rgba(202,138,4,0.25)',
+    background: 'rgba(202,138,4,0.04)',
+    boxShadow: '0 0 0 1px rgba(202,138,4,0.06) inset',
   },
   heading: {
     fontSize: '2rem',
