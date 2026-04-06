@@ -29,12 +29,17 @@ export default function HeroSection() {
         <div style={styles.cardCol}>
           <div style={styles.cardWrapper}>
             <div style={styles.card}>
-              <img
-                src="/hero-og.webp"
-                alt="CoOperate — worker-owned cooperative platform"
-                loading="eager"
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="/hero-og.webp"
                 style={styles.cardImage}
-              />
+              >
+                <source src="/hero-og.webm" type="video/webm" />
+                <source src="/hero-og.mp4" type="video/mp4" />
+              </video>
               {/* Amber accent border glow */}
               <div style={styles.cardGlow} />
             </div>
