@@ -35,7 +35,7 @@ export default function ProfitSharingPage() {
 const styles: Record<string, React.CSSProperties> = {
   layout: {
     display: 'grid',
-    gridTemplateColumns: '380px 1fr',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
     gap: 24,
     alignItems: 'start',
   },

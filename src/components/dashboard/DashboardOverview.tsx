@@ -21,25 +21,25 @@ export default function DashboardOverview() {
           label="Members"
           value={coopInfo.memberCount}
           accent="#a855f7"
-          icon={<svg width="22" height="22" viewBox="0 0 18 18" fill="none" stroke="#a855f7" strokeWidth="1.5"><circle cx="7" cy="5" r="3"/><path d="M1 15c0-3.3 2.7-5 6-5s6 1.7 6 5"/><circle cx="13" cy="6" r="2.5"/></svg>}
+          icon={<svg aria-hidden="true" width="22" height="22" viewBox="0 0 18 18" fill="none" stroke="#a855f7" strokeWidth="1.5"><circle cx="7" cy="5" r="3"/><path d="M1 15c0-3.3 2.7-5 6-5s6 1.7 6 5"/><circle cx="13" cy="6" r="2.5"/></svg>}
         />
         <StatCard
           label="Treasury"
           value={`$${coopInfo.treasury.toLocaleString()}`}
           accent="#16a34a"
-          icon={<svg width="22" height="22" viewBox="0 0 18 18" fill="none" stroke="#16a34a" strokeWidth="1.5"><circle cx="9" cy="9" r="8"/><path d="M9 4v10M6 6.5c0-1 1.5-2 3-2s3 .5 3 2-1.5 2-3 2-3 .5-3 2 1.5 2 3 2 3-1 3-2"/></svg>}
+          icon={<svg aria-hidden="true" width="22" height="22" viewBox="0 0 18 18" fill="none" stroke="#16a34a" strokeWidth="1.5"><circle cx="9" cy="9" r="8"/><path d="M9 4v10M6 6.5c0-1 1.5-2 3-2s3 .5 3 2-1.5 2-3 2-3 .5-3 2 1.5 2 3 2 3-1 3-2"/></svg>}
         />
         <StatCard
           label="Active Proposals"
           value={coopInfo.activeProposals}
           accent="#ca8a04"
-          icon={<svg width="22" height="22" viewBox="0 0 18 18" fill="none" stroke="#ca8a04" strokeWidth="1.5"><rect x="2" y="1" width="14" height="16" rx="2"/><path d="M5 5h8M5 9h6M5 13h4"/></svg>}
+          icon={<svg aria-hidden="true" width="22" height="22" viewBox="0 0 18 18" fill="none" stroke="#ca8a04" strokeWidth="1.5"><rect x="2" y="1" width="14" height="16" rx="2"/><path d="M5 5h8M5 9h6M5 13h4"/></svg>}
         />
         <StatCard
           label="Voting Participation"
           value={`${coopInfo.votingParticipation}%`}
           accent="#ca8a04"
-          icon={<svg width="22" height="22" viewBox="0 0 18 18" fill="none" stroke="#ca8a04" strokeWidth="1.5"><path d="M9 1L1 5v2h16V5L9 1z"/><path d="M3 7v7M7 7v7M11 7v7M15 7v7"/><path d="M1 14h16v2H1z"/></svg>}
+          icon={<svg aria-hidden="true" width="22" height="22" viewBox="0 0 18 18" fill="none" stroke="#ca8a04" strokeWidth="1.5"><path d="M9 1L1 5v2h16V5L9 1z"/><path d="M3 7v7M7 7v7M11 7v7M15 7v7"/><path d="M1 14h16v2H1z"/></svg>}
         />
       </div>
 
@@ -112,7 +112,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
   columns: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
     gap: 24,
   },
   activitySection: {

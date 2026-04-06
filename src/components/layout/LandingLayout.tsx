@@ -3,28 +3,31 @@ import { Outlet, Link } from 'react-router-dom';
 export default function LandingLayout() {
   return (
     <div>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <header style={styles.header}>
         <div style={styles.headerInner}>
-          <Link to="/" style={styles.brand}>
-            <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <Link to="/" style={styles.brand} aria-label="CoOperate home">
+            <svg aria-hidden="true" width="28" height="28" viewBox="0 0 64 64" fill="none">
               <circle cx="24" cy="32" r="14" stroke="#ca8a04" strokeWidth="3" fill="none"/>
               <circle cx="40" cy="32" r="14" stroke="#ca8a04" strokeWidth="3" fill="none"/>
               <circle cx="32" cy="32" r="4" fill="#ca8a04"/>
             </svg>
             <span style={styles.brandName}>CoOperate</span>
           </Link>
-          <nav style={styles.nav}>
+          <nav style={styles.nav} aria-label="Site navigation">
             <a href="#features" className="landing-nav-link">Features</a>
             <a href="#testimonials" className="landing-nav-link">Testimonials</a>
             <Link to="/app" className="btn btn-primary btn-sm">Launch App</Link>
           </nav>
         </div>
       </header>
-      <Outlet />
+      <main id="main-content">
+        <Outlet />
+      </main>
       <footer style={styles.footer}>
         <div style={styles.footerInner}>
           <div style={styles.footerBrand}>
-            <svg width="24" height="24" viewBox="0 0 64 64" fill="none">
+            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 64 64" fill="none">
               <circle cx="24" cy="32" r="14" stroke="#ca8a04" strokeWidth="3" fill="none"/>
               <circle cx="40" cy="32" r="14" stroke="#ca8a04" strokeWidth="3" fill="none"/>
               <circle cx="32" cy="32" r="4" fill="#ca8a04"/>
@@ -44,6 +47,7 @@ export default function LandingLayout() {
     </div>
   );
 }
+
 
 const styles: Record<string, React.CSSProperties> = {
   header: {

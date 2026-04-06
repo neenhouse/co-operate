@@ -34,12 +34,12 @@ export default function ProposalList() {
           <h3 style={styles.formTitle}>Create Proposal</h3>
           <div style={styles.formGrid}>
             <div style={styles.formGroup}>
-              <label style={styles.label}>Title</label>
-              <input type="text" placeholder="Proposal title" style={{ width: '100%' }} />
+              <label htmlFor="proposal-title" style={styles.label}>Title</label>
+              <input id="proposal-title" type="text" placeholder="Proposal title" style={{ width: '100%' }} />
             </div>
             <div style={styles.formGroup}>
-              <label style={styles.label}>Category</label>
-              <select style={{ width: '100%' }}>
+              <label htmlFor="proposal-category" style={styles.label}>Category</label>
+              <select id="proposal-category" style={{ width: '100%' }}>
                 <option>Operations</option>
                 <option>Financial</option>
                 <option>Governance</option>
@@ -50,8 +50,8 @@ export default function ProposalList() {
             </div>
           </div>
           <div style={styles.formGroup}>
-            <label style={styles.label}>Description</label>
-            <textarea rows={3} placeholder="Describe your proposal..." style={{ width: '100%', resize: 'vertical' }} />
+            <label htmlFor="proposal-description" style={styles.label}>Description</label>
+            <textarea id="proposal-description" rows={3} placeholder="Describe your proposal..." style={{ width: '100%', resize: 'vertical' }} />
           </div>
           <button className="btn btn-primary btn-sm" onClick={() => setShowForm(false)}>Submit Proposal</button>
         </div>

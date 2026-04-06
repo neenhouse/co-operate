@@ -54,7 +54,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
   statsBar: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(4, 1fr)',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
     gap: 24,
     marginBottom: 64,
     padding: '32px',

@@ -19,8 +19,8 @@ export default function ProposalDetail({ proposal, onBack }: ProposalDetailProps
 
   return (
     <div>
-      <button style={styles.back} onClick={onBack}>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <button style={styles.back} onClick={onBack} aria-label="Back to proposals">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M10 3L5 8l5 5" />
         </svg>
         Back to Proposals
@@ -159,11 +159,12 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 14,
     cursor: 'pointer',
     marginBottom: 24,
-    padding: 0,
+    padding: '8px 0',
+    minHeight: 44,
   },
   layout: {
     display: 'grid',
-    gridTemplateColumns: '1fr 340px',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
     gap: 24,
     alignItems: 'start',
   },

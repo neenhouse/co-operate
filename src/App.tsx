@@ -13,8 +13,17 @@ const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage'));
 
 function Loading() {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '60vh', color: '#5e5e7a' }}>
-      Loading...
+    <div
+      role="status"
+      aria-label="Loading"
+      style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '60vh', color: '#5e5e7a', gap: 10 }}
+    >
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ animation: 'spin 1s linear infinite' }}>
+        <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="2" strokeOpacity="0.25" />
+        <path d="M10 2a8 8 0 0 1 8 8" stroke="#ca8a04" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+      Loading…
+      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>
   );
 }

@@ -20,8 +20,9 @@ export default function MemberInvite() {
       <h3 style={styles.title}>Invite New Member</h3>
       <form onSubmit={handleSubmit} style={styles.form}>
         <div style={styles.formGroup}>
-          <label style={styles.label}>Email Address</label>
+          <label htmlFor="invite-email" style={styles.label}>Email Address</label>
           <input
+            id="invite-email"
             type="email"
             placeholder="member@example.com"
             value={email}
@@ -31,8 +32,8 @@ export default function MemberInvite() {
           />
         </div>
         <div style={styles.formGroup}>
-          <label style={styles.label}>Role</label>
-          <select value={role} onChange={(e) => setRole(e.target.value)} style={{ width: '100%' }}>
+          <label htmlFor="invite-role" style={styles.label}>Role</label>
+          <select id="invite-role" value={role} onChange={(e) => setRole(e.target.value)} style={{ width: '100%' }}>
             <option value="member">Member</option>
             <option value="board">Board Member</option>
             <option value="officer">Officer</option>

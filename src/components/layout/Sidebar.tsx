@@ -11,10 +11,10 @@ const navItems = [
 
 export default function Sidebar() {
   return (
-    <aside style={styles.sidebar}>
+    <aside className="app-sidebar" style={styles.sidebar} aria-label="Application navigation">
       <div style={styles.brand}>
         <div style={styles.logo}>
-          <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <svg width="28" height="28" viewBox="0 0 64 64" fill="none" aria-hidden="true">
             <circle cx="24" cy="32" r="14" stroke="#ca8a04" strokeWidth="3" fill="none"/>
             <circle cx="40" cy="32" r="14" stroke="#ca8a04" strokeWidth="3" fill="none"/>
             <circle cx="32" cy="32" r="4" fill="#ca8a04"/>
@@ -23,7 +23,7 @@ export default function Sidebar() {
         <span style={styles.brandName}>CoOperate</span>
       </div>
       <div style={styles.coopName}>Sunrise Bakery Co-op</div>
-      <nav style={styles.nav}>
+      <nav style={styles.nav} aria-label="Main navigation">
         {navItems.map((item) => (
           <NavLink
             key={item.to}
@@ -48,7 +48,7 @@ export default function Sidebar() {
 
 function DashboardIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="1" y="1" width="7" height="7" rx="1.5" />
       <rect x="10" y="1" width="7" height="4" rx="1.5" />
       <rect x="1" y="10" width="7" height="4" rx="1.5" />
@@ -59,7 +59,7 @@ function DashboardIcon() {
 
 function TemplatesIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M3 1h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z" />
       <path d="M5 5h8M5 9h6M5 13h4" />
     </svg>
@@ -68,7 +68,7 @@ function TemplatesIcon() {
 
 function GovernanceIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M9 1L1 5v2h16V5L9 1z" />
       <path d="M3 7v7M7 7v7M11 7v7M15 7v7" />
       <path d="M1 14h16v2H1z" />
@@ -78,7 +78,7 @@ function GovernanceIcon() {
 
 function ProfitIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="9" cy="9" r="8" />
       <path d="M9 4v10M6 6.5c0-1 1.5-2 3-2s3 .5 3 2-1.5 2-3 2-3 .5-3 2 1.5 2 3 2 3-1 3-2" />
     </svg>
@@ -87,7 +87,7 @@ function ProfitIcon() {
 
 function MembersIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="7" cy="5" r="3" />
       <path d="M1 15c0-3.3 2.7-5 6-5s6 1.7 6 5" />
       <circle cx="13" cy="6" r="2.5" />
@@ -98,7 +98,7 @@ function MembersIcon() {
 
 function AnalyticsIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M1 17V7l4-3 4 5 4-7 4 4v11H1z" />
       <circle cx="5" cy="4" r="1" fill="currentColor" />
       <circle cx="9" cy="9" r="1" fill="currentColor" />
@@ -109,7 +109,7 @@ function AnalyticsIcon() {
 
 function ArrowLeftIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M10 3L5 8l5 5" />
     </svg>
   );
@@ -118,7 +118,7 @@ function ArrowLeftIcon() {
 const styles: Record<string, React.CSSProperties> = {
   sidebar: {
     width: 260,
-    minHeight: '100vh',
+    minHeight: '100dvh',
     background: '#12121a',
     borderRight: '1px solid #2a2a3e',
     display: 'flex',

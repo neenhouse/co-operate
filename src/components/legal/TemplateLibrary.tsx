@@ -40,17 +40,29 @@ export default function TemplateLibrary() {
           <input
             type="text"
             placeholder="Search templates..."
+            aria-label="Search templates"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             style={styles.search}
           />
-          <select value={filter} onChange={(e) => setFilter(e.target.value)} style={styles.select}>
+          <select value={filter} onChange={(e) => setFilter(e.target.value)} aria-label="Filter by category" style={styles.select}>
             {categories.map((c) => (
               <option key={c.value} value={c.value}>{c.label}</option>
             ))}
           </select>
         </div>
       </div>
+
+      {filtered.length === 0 && (
+        <div style={styles.empty}>
+          <svg aria-hidden="true" width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#5e5e7a" strokeWidth="1.5">
+            <rect x="8" y="4" width="24" height="32" rx="3" />
+            <path d="M14 12h12M14 18h12M14 24h8" />
+          </svg>
+          <div style={styles.emptyTitle}>No templates found</div>
+          <div style={styles.emptyDesc}>Try adjusting your search or filter.</div>
+        </div>
+      )}
 
       <div style={styles.grid} data-testid="template-grid">
         {filtered.map((t) => (
@@ -85,7 +97,7 @@ export default function TemplateLibrary() {
 
 function TemplateIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ca8a04" strokeWidth="1.5">
+    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ca8a04" strokeWidth="1.5">
       <rect x="3" y="1" width="14" height="18" rx="2" />
       <path d="M7 5h6M7 9h6M7 13h4" />
     </svg>
@@ -94,7 +106,7 @@ function TemplateIcon() {
 
 function PopularityIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M7 1l1.8 3.6L13 5.3l-3 2.9.7 4.1L7 10.4 3.3 12.3 4 8.2 1 5.3l4.2-.7L7 1z" />
     </svg>
   );
@@ -169,6 +181,23 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: 'center',
     gap: 4,
     fontSize: 12,
+    color: '#5e5e7a',
+  },
+  empty: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: 8,
+    padding: '64px 32px',
+    color: '#5e5e7a',
+  },
+  emptyTitle: {
+    fontSize: 16,
+    fontWeight: 600,
+    color: '#9898b0',
+  },
+  emptyDesc: {
+    fontSize: 14,
     color: '#5e5e7a',
   },
 };
