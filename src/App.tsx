@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import AppLayout from './components/layout/AppLayout';
 import LandingLayout from './components/layout/LandingLayout';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 const LandingPage = lazy(() => import('./pages/LandingPage'));
 const DashboardPage = lazy(() => import('./pages/DashboardPage'));
@@ -10,6 +11,7 @@ const GovernancePage = lazy(() => import('./pages/GovernancePage'));
 const ProfitSharingPage = lazy(() => import('./pages/ProfitSharingPage'));
 const MembersPage = lazy(() => import('./pages/MembersPage'));
 const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function Loading() {
   return (
@@ -30,20 +32,23 @@ function Loading() {
 
 export default function App() {
   return (
-    <Suspense fallback={<Loading />}>
-      <Routes>
-        <Route element={<LandingLayout />}>
-          <Route index element={<LandingPage />} />
-        </Route>
-        <Route path="/app" element={<AppLayout />}>
-          <Route index element={<DashboardPage />} />
-          <Route path="templates" element={<TemplatesPage />} />
-          <Route path="governance" element={<GovernancePage />} />
-          <Route path="profit-sharing" element={<ProfitSharingPage />} />
-          <Route path="members" element={<MembersPage />} />
-          <Route path="analytics" element={<AnalyticsPage />} />
-        </Route>
-      </Routes>
-    </Suspense>
+    <ErrorBoundary>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route element={<LandingLayout />}>
+            <Route index element={<LandingPage />} />
+          </Route>
+          <Route path="/app" element={<AppLayout />}>
+            <Route index element={<DashboardPage />} />
+            <Route path="templates" element={<TemplatesPage />} />
+            <Route path="governance" element={<GovernancePage />} />
+            <Route path="profit-sharing" element={<ProfitSharingPage />} />
+            <Route path="members" element={<MembersPage />} />
+            <Route path="analytics" element={<AnalyticsPage />} />
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
+    </ErrorBoundary>
   );
 }
