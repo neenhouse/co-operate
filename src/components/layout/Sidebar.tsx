@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 const navItems = [
   { to: '/app', label: 'Dashboard', end: true, icon: DashboardIcon },
+  { to: '/app/pipeline', label: 'Pipeline', end: false, icon: PipelineIcon },
   { to: '/app/templates', label: 'Templates', end: false, icon: TemplatesIcon },
   { to: '/app/governance', label: 'Governance', end: false, icon: GovernanceIcon },
   { to: '/app/profit-sharing', label: 'Profit Sharing', end: false, icon: ProfitIcon },
@@ -43,6 +44,14 @@ export default function Sidebar() {
         </NavLink>
       </div>
     </aside>
+  );
+}
+
+function PipelineIcon() {
+  return (
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M1 3h16M3 3v4l4 2 4-2 4 2v4M3 7l4 2v6M7 9l4-2v6M11 7l4 2v6" />
+    </svg>
   );
 }
 

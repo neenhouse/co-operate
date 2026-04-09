@@ -59,6 +59,71 @@ export interface MonthlyFinancial {
   surplus: number;
 }
 
+export type DealStage =
+  | 'prospect'
+  | 'feasibility'
+  | 'valuation'
+  | 'financing'
+  | 'legal'
+  | 'governance-design'
+  | 'closing'
+  | 'post-conversion';
+
+export const DEAL_STAGES: { key: DealStage; label: string; shortLabel: string }[] = [
+  { key: 'prospect', label: 'Prospect', shortLabel: 'Prospect' },
+  { key: 'feasibility', label: 'Feasibility Study', shortLabel: 'Feasibility' },
+  { key: 'valuation', label: 'Valuation', shortLabel: 'Valuation' },
+  { key: 'financing', label: 'Financing', shortLabel: 'Financing' },
+  { key: 'legal', label: 'Legal Restructuring', shortLabel: 'Legal' },
+  { key: 'governance-design', label: 'Governance Design', shortLabel: 'Governance' },
+  { key: 'closing', label: 'Closing', shortLabel: 'Closing' },
+  { key: 'post-conversion', label: 'Post-Conversion', shortLabel: 'Post-Conv' },
+];
+
+export interface Stakeholder {
+  id: string;
+  name: string;
+  role: 'owner' | 'worker-lead' | 'attorney' | 'lender' | 'developer' | 'advisor';
+  organization?: string;
+  email: string;
+}
+
+export interface DealDocument {
+  id: string;
+  title: string;
+  type: 'letter-of-intent' | 'feasibility-report' | 'term-sheet' | 'valuation' | 'articles' | 'bylaws' | 'financing-agreement' | 'other';
+  status: 'draft' | 'review' | 'final';
+  date: string;
+}
+
+export interface ComplianceItem {
+  id: string;
+  title: string;
+  jurisdiction: string;
+  category: 'state-filing' | 'tax' | 'licensing' | 'labor' | 'corporate';
+  completed: boolean;
+  dueDate?: string;
+  notes?: string;
+}
+
+export interface Deal {
+  id: string;
+  businessName: string;
+  industry: string;
+  location: { city: string; state: string };
+  stage: DealStage;
+  ownerName: string;
+  workerCount: number;
+  estimatedValue: string;
+  startDate: string;
+  targetCloseDate: string;
+  stakeholders: Stakeholder[];
+  documents: DealDocument[];
+  compliance: ComplianceItem[];
+  blockers: string[];
+  notes: string;
+}
+
 export const members: Member[] = [
   { id: '1', name: 'Maria Santos', email: 'maria@sunrise.coop', role: 'admin', status: 'active', equity: 48200, joinDate: '2022-03-15', initials: 'MS', color: '#ca8a04' },
   { id: '2', name: 'James Chen', email: 'james@sunrise.coop', role: 'board', status: 'active', equity: 45800, joinDate: '2022-03-15', initials: 'JC', color: '#16a34a' },
@@ -166,3 +231,196 @@ export const analyticsData = {
     { category: 'Committee Involvement', score: 71, trend: 'up' as const },
   ],
 };
+
+export const deals: Deal[] = [
+  {
+    id: '1',
+    businessName: 'Sunrise Bakery',
+    industry: 'Food & Beverage',
+    location: { city: 'Portland', state: 'OR' },
+    stage: 'closing',
+    ownerName: 'Harold Fischer',
+    workerCount: 12,
+    estimatedValue: '$1.2M',
+    startDate: '2025-03-15',
+    targetCloseDate: '2026-05-01',
+    stakeholders: [
+      { id: 's1', name: 'Harold Fischer', role: 'owner', email: 'harold@sunrisebakery.com' },
+      { id: 's2', name: 'Maria Santos', role: 'worker-lead', email: 'maria@sunrise.coop' },
+      { id: 's3', name: 'Patricia Nguyen', role: 'attorney', organization: 'Nguyen Cooperative Law', email: 'patricia@nguyenlaw.com' },
+      { id: 's4', name: 'David Morales', role: 'developer', organization: 'Oregon Cooperative Development Center', email: 'david@ocdc.org' },
+      { id: 's5', name: 'Sarah Kim', role: 'lender', organization: 'Shared Capital Cooperative', email: 'sarah@sharedcapital.coop' },
+    ],
+    documents: [
+      { id: 'd1', title: 'Letter of Intent', type: 'letter-of-intent', status: 'final', date: '2025-04-10' },
+      { id: 'd2', title: 'Business Valuation Report', type: 'valuation', status: 'final', date: '2025-07-22' },
+      { id: 'd3', title: 'Feasibility Study', type: 'feasibility-report', status: 'final', date: '2025-06-15' },
+      { id: 'd4', title: 'Term Sheet — Shared Capital', type: 'term-sheet', status: 'final', date: '2025-10-03' },
+      { id: 'd5', title: 'Articles of Incorporation', type: 'articles', status: 'final', date: '2026-01-18' },
+      { id: 'd6', title: 'Worker Cooperative Bylaws', type: 'bylaws', status: 'review', date: '2026-03-05' },
+      { id: 'd7', title: 'Seller Financing Agreement', type: 'financing-agreement', status: 'draft', date: '2026-03-20' },
+    ],
+    compliance: [
+      { id: 'c1', title: 'File Articles of Incorporation with Oregon SOS', jurisdiction: 'Oregon', category: 'state-filing', completed: true },
+      { id: 'c2', title: 'Obtain EIN from IRS', jurisdiction: 'Federal', category: 'tax', completed: true },
+      { id: 'c3', title: 'Register for Oregon Business Registry', jurisdiction: 'Oregon', category: 'state-filing', completed: true },
+      { id: 'c4', title: 'File Cooperative Annual Report', jurisdiction: 'Oregon', category: 'corporate', completed: false, dueDate: '2026-06-30' },
+      { id: 'c5', title: 'Transfer food service permits', jurisdiction: 'Multnomah County', category: 'licensing', completed: false, dueDate: '2026-05-01' },
+      { id: 'c6', title: 'Update workers compensation insurance', jurisdiction: 'Oregon', category: 'labor', completed: false, dueDate: '2026-04-30' },
+    ],
+    blockers: [],
+    notes: 'Conversion on track for May closing. Bylaws in final review with attorney. Seller financing terms agreed — Harold taking 30% note over 7 years.',
+  },
+  {
+    id: '2',
+    businessName: 'GreenLeaf Landscaping',
+    industry: 'Landscaping',
+    location: { city: 'Austin', state: 'TX' },
+    stage: 'financing',
+    ownerName: 'Robert Callahan',
+    workerCount: 8,
+    estimatedValue: '$850K',
+    startDate: '2025-08-01',
+    targetCloseDate: '2026-08-15',
+    stakeholders: [
+      { id: 's6', name: 'Robert Callahan', role: 'owner', email: 'robert@greenleafaustin.com' },
+      { id: 's7', name: 'Carlos Mendez', role: 'worker-lead', email: 'carlos@greenleafaustin.com' },
+      { id: 's8', name: 'Jennifer Walsh', role: 'attorney', organization: 'Walsh & Associates', email: 'jennifer@walshlaw.com' },
+      { id: 's9', name: 'Amy Chen', role: 'developer', organization: 'Texas Co-op Development', email: 'amy@txcoop.org' },
+      { id: 's10', name: 'Michael Torres', role: 'lender', organization: 'Seed Commons', email: 'michael@seedcommons.org' },
+      { id: 's11', name: 'Linda Park', role: 'advisor', organization: 'Austin SBDC', email: 'linda@austinsbdc.org' },
+    ],
+    documents: [
+      { id: 'd8', title: 'Letter of Intent', type: 'letter-of-intent', status: 'final', date: '2025-09-12' },
+      { id: 'd9', title: 'Feasibility Study', type: 'feasibility-report', status: 'final', date: '2025-11-20' },
+      { id: 'd10', title: 'Business Valuation', type: 'valuation', status: 'final', date: '2026-01-08' },
+      { id: 'd11', title: 'Term Sheet — Seed Commons', type: 'term-sheet', status: 'review', date: '2026-03-15' },
+    ],
+    compliance: [
+      { id: 'c7', title: 'File Certificate of Formation with Texas SOS', jurisdiction: 'Texas', category: 'state-filing', completed: false, dueDate: '2026-06-01' },
+      { id: 'c8', title: 'Obtain EIN from IRS', jurisdiction: 'Federal', category: 'tax', completed: true },
+      { id: 'c9', title: 'Texas franchise tax registration', jurisdiction: 'Texas', category: 'tax', completed: false, dueDate: '2026-07-01' },
+      { id: 'c10', title: 'Transfer landscaping business license', jurisdiction: 'City of Austin', category: 'licensing', completed: false },
+      { id: 'c11', title: 'Workers compensation policy update', jurisdiction: 'Texas', category: 'labor', completed: false },
+    ],
+    blockers: [
+      'SBA lender requesting 3 years of audited financials — only 2 years available',
+      'State filing delayed pending resolution of outstanding franchise tax issue',
+    ],
+    notes: 'Robert wants to retire by end of 2026. Workers enthusiastic but financing is the bottleneck. Seed Commons term sheet under review — may need secondary lender for the gap.',
+  },
+  {
+    id: '3',
+    businessName: 'Harbor Home Care',
+    industry: 'Home Care',
+    location: { city: 'Seattle', state: 'WA' },
+    stage: 'feasibility',
+    ownerName: 'Margaret Liu',
+    workerCount: 22,
+    estimatedValue: '$2.1M',
+    startDate: '2026-01-10',
+    targetCloseDate: '2027-06-30',
+    stakeholders: [
+      { id: 's12', name: 'Margaret Liu', role: 'owner', email: 'margaret@harborhomecare.com' },
+      { id: 's13', name: 'Dina Okafor', role: 'worker-lead', email: 'dina@harborhomecare.com' },
+      { id: 's14', name: 'Tom Brennan', role: 'developer', organization: 'Northwest Cooperative Development Center', email: 'tom@nwcdc.coop' },
+    ],
+    documents: [
+      { id: 'd12', title: 'Letter of Intent', type: 'letter-of-intent', status: 'final', date: '2026-02-05' },
+      { id: 'd13', title: 'Feasibility Study', type: 'feasibility-report', status: 'draft', date: '2026-03-28' },
+    ],
+    compliance: [
+      { id: 'c12', title: 'File Articles with Washington SOS', jurisdiction: 'Washington', category: 'state-filing', completed: false },
+      { id: 'c13', title: 'Home care agency license transfer', jurisdiction: 'Washington DSHS', category: 'licensing', completed: false },
+      { id: 'c14', title: 'Obtain EIN from IRS', jurisdiction: 'Federal', category: 'tax', completed: false },
+    ],
+    blockers: [],
+    notes: 'City of Seattle has a municipal conversion fund that may cover up to $200K of the acquisition cost. Feasibility study in progress — key question is whether Medicaid reimbursement rates support the debt service. Large worker base (22) makes this a high-impact conversion.',
+  },
+  {
+    id: '4',
+    businessName: 'Atlas Print Shop',
+    industry: 'Printing & Design',
+    location: { city: 'Denver', state: 'CO' },
+    stage: 'valuation',
+    ownerName: 'Frank Reeves',
+    workerCount: 5,
+    estimatedValue: '$420K',
+    startDate: '2025-11-01',
+    targetCloseDate: '2026-10-01',
+    stakeholders: [
+      { id: 's15', name: 'Frank Reeves', role: 'owner', email: 'frank@atlasprint.com' },
+      { id: 's16', name: 'Jade Thompson', role: 'worker-lead', email: 'jade@atlasprint.com' },
+      { id: 's17', name: 'Richard Gomez', role: 'attorney', organization: 'Colorado Co-op Law', email: 'richard@cocooplaw.com' },
+      { id: 's18', name: 'Nancy Whitfield', role: 'developer', organization: 'Rocky Mountain Employee Ownership Center', email: 'nancy@rmeoc.org' },
+    ],
+    documents: [
+      { id: 'd14', title: 'Letter of Intent', type: 'letter-of-intent', status: 'final', date: '2025-12-15' },
+      { id: 'd15', title: 'Feasibility Study', type: 'feasibility-report', status: 'final', date: '2026-02-10' },
+      { id: 'd16', title: 'Independent Business Valuation', type: 'valuation', status: 'draft', date: '2026-03-25' },
+    ],
+    compliance: [
+      { id: 'c15', title: 'File Articles with Colorado SOS', jurisdiction: 'Colorado', category: 'state-filing', completed: false },
+      { id: 'c16', title: 'Obtain EIN from IRS', jurisdiction: 'Federal', category: 'tax', completed: false },
+    ],
+    blockers: [
+      'Contested valuation — owner values at $520K based on revenue multiple, workers counter at $380K based on asset value. Mediator engaged.',
+    ],
+    notes: 'Small but profitable shop. Frank has owned it 28 years. Workers are experienced and committed. Valuation gap is the main hurdle — attorney mediating between the two appraisals.',
+  },
+  {
+    id: '5',
+    businessName: 'Riverwalk Childcare',
+    industry: 'Childcare',
+    location: { city: 'Minneapolis', state: 'MN' },
+    stage: 'governance-design',
+    ownerName: 'Susan Hartley',
+    workerCount: 15,
+    estimatedValue: '$1.5M',
+    startDate: '2025-06-01',
+    targetCloseDate: '2026-09-01',
+    stakeholders: [
+      { id: 's19', name: 'Susan Hartley', role: 'owner', email: 'susan@riverwalkchildcare.com' },
+      { id: 's20', name: 'Amara Jackson', role: 'worker-lead', email: 'amara@riverwalkchildcare.com' },
+      { id: 's21', name: 'Peter Olson', role: 'attorney', organization: 'Olson Legal', email: 'peter@olsonlegal.com' },
+      { id: 's22', name: 'Karen Brightwater', role: 'developer', organization: 'Cooperative Development Services', email: 'karen@cdsus.coop' },
+      { id: 's23', name: 'James Wright', role: 'lender', organization: 'Northcountry Cooperative Development Fund', email: 'james@ncdf.coop' },
+    ],
+    documents: [
+      { id: 'd17', title: 'Letter of Intent', type: 'letter-of-intent', status: 'final', date: '2025-07-20' },
+      { id: 'd18', title: 'Feasibility Study', type: 'feasibility-report', status: 'final', date: '2025-09-15' },
+      { id: 'd19', title: 'Business Valuation', type: 'valuation', status: 'final', date: '2025-11-08' },
+      { id: 'd20', title: 'Term Sheet — NCDF', type: 'term-sheet', status: 'final', date: '2026-01-22' },
+      { id: 'd21', title: 'Financing Agreement', type: 'financing-agreement', status: 'final', date: '2026-02-28' },
+      { id: 'd22', title: 'Draft Bylaws', type: 'bylaws', status: 'draft', date: '2026-03-18' },
+    ],
+    compliance: [
+      { id: 'c17', title: 'File Articles with Minnesota SOS', jurisdiction: 'Minnesota', category: 'state-filing', completed: false, dueDate: '2026-07-01' },
+      { id: 'c18', title: 'Obtain EIN from IRS', jurisdiction: 'Federal', category: 'tax', completed: true },
+      { id: 'c19', title: 'Transfer childcare facility license', jurisdiction: 'Minnesota DHS', category: 'licensing', completed: false },
+      { id: 'c20', title: 'Background check compliance for new entity', jurisdiction: 'Minnesota', category: 'labor', completed: false },
+    ],
+    blockers: [],
+    notes: 'Financing secured through NCDF. Workers now designing their governance structure — debating between equal vote with rotating board vs. departmental representation model. Karen facilitating governance workshops every other week.',
+  },
+  {
+    id: '6',
+    businessName: 'Mountain Mechanical',
+    industry: 'HVAC Services',
+    location: { city: 'Boise', state: 'ID' },
+    stage: 'prospect',
+    ownerName: 'Gary Stenson',
+    workerCount: 6,
+    estimatedValue: '$650K',
+    startDate: '2026-03-01',
+    targetCloseDate: '2027-03-01',
+    stakeholders: [
+      { id: 's24', name: 'Gary Stenson', role: 'owner', email: 'gary@mountainmech.com' },
+      { id: 's25', name: 'Ryan Foster', role: 'worker-lead', email: 'ryan@mountainmech.com' },
+    ],
+    documents: [],
+    compliance: [],
+    blockers: [],
+    notes: 'Initial inquiry from retiring owner via Idaho SBDC referral. Gary wants to retire in 12-18 months. Workers are interested but no formal engagement yet. Need to schedule initial assessment meeting.',
+  },
+];

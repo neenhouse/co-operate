@@ -11,6 +11,8 @@ const GovernancePage = lazy(() => import('./pages/GovernancePage'));
 const ProfitSharingPage = lazy(() => import('./pages/ProfitSharingPage'));
 const MembersPage = lazy(() => import('./pages/MembersPage'));
 const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage'));
+const PipelinePage = lazy(() => import('./pages/PipelinePage'));
+const DealDetailPage = lazy(() => import('./pages/DealDetailPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function Loading() {
@@ -45,6 +47,8 @@ export default function App() {
             <Route path="profit-sharing" element={<ProfitSharingPage />} />
             <Route path="members" element={<MembersPage />} />
             <Route path="analytics" element={<AnalyticsPage />} />
+            <Route path="pipeline" element={<PipelinePage />} />
+            <Route path="pipeline/:dealId" element={<DealDetailPage />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
