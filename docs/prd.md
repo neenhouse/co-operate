@@ -151,7 +151,7 @@ the trust collateral and governance outcomes layers.
 
 ### 2.2 Capital Matching
 
-**Status:** PLANNED
+**Status:** COMPLETE (demo) | **Route:** `/app/capital`
 
 **Goal:** Connect converting businesses to cooperative-friendly capital sources
 with standardized, pre-verified application packages.
@@ -166,6 +166,9 @@ with standardized, pre-verified application packages.
 verifies the data that lenders need, reducing their cost of due diligence.
 The capital facilitation fee (1-3% of deployed capital, paid by lender as
 underwriting cost reduction) is the acquisition-phase revenue engine.
+
+**Components:** `CapitalView`, `LenderDirectory`, `LenderCard`,
+`ApplicationTracker`, `EligibilityBadge`
 
 ### 2.3 Legal Templates — Conversion Focus
 

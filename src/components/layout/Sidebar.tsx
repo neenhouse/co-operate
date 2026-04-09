@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 const navItems = [
   { to: '/app', label: 'Dashboard', end: true, icon: DashboardIcon },
   { to: '/app/pipeline', label: 'Pipeline', end: false, icon: PipelineIcon },
+  { to: '/app/capital', label: 'Capital', end: false, icon: CapitalIcon },
   { to: '/app/templates', label: 'Templates', end: false, icon: TemplatesIcon },
   { to: '/app/governance', label: 'Governance', end: false, icon: GovernanceIcon },
   { to: '/app/profit-sharing', label: 'Profit Sharing', end: false, icon: ProfitIcon },
@@ -112,6 +113,17 @@ function AnalyticsIcon() {
       <circle cx="5" cy="4" r="1" fill="currentColor" />
       <circle cx="9" cy="9" r="1" fill="currentColor" />
       <circle cx="13" cy="2" r="1" fill="currentColor" />
+    </svg>
+  );
+}
+
+function CapitalIcon() {
+  return (
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <rect x="2" y="4" width="14" height="11" rx="2" />
+      <path d="M2 8h14" />
+      <path d="M6 1v3M12 1v3" />
+      <circle cx="9" cy="11.5" r="1.5" />
     </svg>
   );
 }

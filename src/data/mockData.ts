@@ -232,6 +232,149 @@ export const analyticsData = {
   ],
 };
 
+export interface Lender {
+  id: string;
+  name: string;
+  type: 'cdfi' | 'cooperative-fund' | 'sba' | 'state-program' | 'credit-union';
+  description: string;
+  minDeal: number;
+  maxDeal: number;
+  states: string[] | 'national';
+  industries: string[] | 'all';
+  interestRange: string;
+  termRange: string;
+  requirements: string[];
+}
+
+export interface CapitalApplication {
+  id: string;
+  dealId: string;
+  lenderId: string;
+  status: 'draft' | 'submitted' | 'under-review' | 'approved' | 'funded' | 'declined';
+  amount: string;
+  submittedDate?: string;
+  notes?: string;
+}
+
+export const lenders: Lender[] = [
+  {
+    id: 'l1',
+    name: 'Shared Capital Cooperative',
+    type: 'cdfi',
+    description: 'Cooperative lending specialist providing financing for worker, housing, and consumer cooperatives across the United States.',
+    minDeal: 100000,
+    maxDeal: 5000000,
+    states: 'national',
+    industries: 'all',
+    interestRange: '4.5%–7.5%',
+    termRange: '5–25 years',
+    requirements: ['Cooperative structure', 'Business plan', '2 years financial history', 'Member equity commitment'],
+  },
+  {
+    id: 'l2',
+    name: 'Seed Commons',
+    type: 'cooperative-fund',
+    description: 'Non-extractive lending network supporting worker-owned businesses with patient capital and technical assistance.',
+    minDeal: 50000,
+    maxDeal: 2000000,
+    states: 'national',
+    industries: 'all',
+    interestRange: '2%–6%',
+    termRange: '3–15 years',
+    requirements: ['Worker ownership commitment', 'Community impact plan', 'Democratic governance plan'],
+  },
+  {
+    id: 'l3',
+    name: 'Northcountry Cooperative Development Fund',
+    type: 'cdfi',
+    description: 'Upper Midwest CDFI focused on cooperative development, providing loans and technical assistance to cooperatives in the region.',
+    minDeal: 25000,
+    maxDeal: 1000000,
+    states: ['MN', 'WI', 'IA', 'ND', 'SD'],
+    industries: 'all',
+    interestRange: '4%–7%',
+    termRange: '3–20 years',
+    requirements: ['Located in service area', 'Cooperative structure', 'Feasibility study'],
+  },
+  {
+    id: 'l4',
+    name: 'The Working World',
+    type: 'cooperative-fund',
+    description: 'Non-extractive investment fund focused on worker cooperatives, offering patient capital with returns tied to business success.',
+    minDeal: 50000,
+    maxDeal: 500000,
+    states: 'national',
+    industries: 'all',
+    interestRange: '3%–6%',
+    termRange: '3–10 years',
+    requirements: ['Worker cooperative', 'Revenue-generating', 'Democratic governance'],
+  },
+  {
+    id: 'l5',
+    name: 'Oregon Community Capital',
+    type: 'state-program',
+    description: 'State-funded program providing capital access to Oregon businesses transitioning to cooperative ownership.',
+    minDeal: 25000,
+    maxDeal: 500000,
+    states: ['OR'],
+    industries: 'all',
+    interestRange: '3%–5%',
+    termRange: '5–15 years',
+    requirements: ['Oregon-based business', 'Conversion plan', 'Worker participation agreement'],
+  },
+  {
+    id: 'l6',
+    name: 'Colorado Enterprise Fund',
+    type: 'sba',
+    description: 'SBA micro-lender serving Colorado small businesses and cooperatives with flexible financing options.',
+    minDeal: 10000,
+    maxDeal: 250000,
+    states: ['CO'],
+    industries: 'all',
+    interestRange: '5%–9%',
+    termRange: '1–7 years',
+    requirements: ['Colorado-based', 'SBA eligibility', 'Business plan', 'Personal guarantee'],
+  },
+];
+
+export const capitalApplications: CapitalApplication[] = [
+  {
+    id: 'ca1',
+    dealId: '1',
+    lenderId: 'l1',
+    status: 'approved',
+    amount: '$800,000',
+    submittedDate: '2025-09-15',
+    notes: 'Term sheet finalized. Closing scheduled to align with conversion timeline.',
+  },
+  {
+    id: 'ca2',
+    dealId: '2',
+    lenderId: 'l2',
+    status: 'under-review',
+    amount: '$600,000',
+    submittedDate: '2026-03-01',
+    notes: 'Application complete. Seed Commons reviewing community impact assessment.',
+  },
+  {
+    id: 'ca3',
+    dealId: '2',
+    lenderId: 'l6',
+    status: 'declined',
+    amount: '$200,000',
+    submittedDate: '2026-02-10',
+    notes: 'Declined — business is located in Texas, outside Colorado service area.',
+  },
+  {
+    id: 'ca4',
+    dealId: '3',
+    lenderId: 'l3',
+    status: 'draft',
+    amount: '$1,200,000',
+    notes: 'Draft application in progress. Awaiting feasibility study completion.',
+  },
+];
+
 export const deals: Deal[] = [
   {
     id: '1',
