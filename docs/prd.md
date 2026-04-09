@@ -128,7 +128,7 @@ doesn't need the member tools until *after* conversion closes.
 
 ### 2.1 Conversion Pipeline
 
-**Status:** PLANNED
+**Status:** COMPLETE (demo) | **Route:** `/app/pipeline`, `/app/pipeline/:dealId`
 
 **Goal:** Give cooperative developers a structured pipeline for managing worker
 buyouts — from initial owner contact through closed conversion.
@@ -139,6 +139,9 @@ buyouts — from initial owner contact through closed conversion.
 - Document generation: letters of intent, feasibility reports, term sheets
 - Compliance checklist per jurisdiction (pulls from regulatory graph)
 - Multi-deal portfolio view for intermediaries managing 5-20 conversions
+
+**Components:** `PipelineView`, `DealCard`, `DealDetail`, `StageTimeline`,
+`StakeholderList`, `DocumentList`, `ComplianceChecklist`
 
 **Why this matters:** Intermediaries currently track conversions in spreadsheets
 and email. The conversion process has 6+ months of human-intensive steps.
