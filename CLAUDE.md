@@ -1,8 +1,13 @@
 # CoOperate
 
-A platform for launching and running worker-owned cooperatives. Legal templates, governance tools, profit-sharing automation, democratic decision-making.
+A trust manufacturing system for worker-owned cooperatives. The SaaS features (governance, profit sharing, legal templates) are the substrate — the product is the verified democratic provenance and cooperative credit signal that these features produce. Capital facilitation and shared services are the business; the software is bundled free.
 
 Demo project for Chris Nienhuis's portfolio at neenhouse.com.
+
+## Strategic Context
+
+- `docs/vision.md` — Full thesis: irreducible human need, business model, moat (4 layers), flywheel with kill metrics, competitive landscape, year 0-5 milestone plan, anti-thesis, 10 resolved strategic decisions
+- `docs/prd.md` — Feature tiers mapped to flywheel functions: Tier 1 (trust collateral substrate), Tier 2 (intermediary toolkit / acquisition), Tier 3 (member experience / retention), Tier 4 (network layer / scale)
 
 ## Tech Stack
 
