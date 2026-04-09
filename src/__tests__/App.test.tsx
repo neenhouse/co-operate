@@ -20,18 +20,18 @@ function renderWithRouter(ui: React.ReactElement, { route = '/' } = {}) {
 describe('Landing Page', () => {
   it('renders hero text', () => {
     renderWithRouter(<LandingPage />);
-    expect(screen.getByText('Own Your Work.')).toBeInTheDocument();
-    expect(screen.getByText('Build Together.')).toBeInTheDocument();
+    expect(screen.getByText('The Conversion Platform')).toBeInTheDocument();
+    expect(screen.getByText('for Worker Ownership.')).toBeInTheDocument();
   });
 
   it('renders feature cards', () => {
     renderWithRouter(<LandingPage />);
-    expect(screen.getByText('Legal Templates')).toBeInTheDocument();
-    expect(screen.getByText('Democratic Voting')).toBeInTheDocument();
+    expect(screen.getByText('Conversion Pipeline')).toBeInTheDocument();
+    expect(screen.getByText('Capital Matching')).toBeInTheDocument();
+    expect(screen.getByText('Compliance Automation')).toBeInTheDocument();
+    expect(screen.getByText('Democratic Governance')).toBeInTheDocument();
     expect(screen.getByText('Profit Sharing')).toBeInTheDocument();
     expect(screen.getByText('Member Management')).toBeInTheDocument();
-    expect(screen.getByText('Analytics Dashboard')).toBeInTheDocument();
-    expect(screen.getByText('Cooperative Values')).toBeInTheDocument();
   });
 });
 

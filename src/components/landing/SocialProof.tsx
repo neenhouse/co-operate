@@ -4,12 +4,12 @@ export default function SocialProof() {
   return (
     <section id="testimonials" style={styles.section}>
       <div style={styles.inner}>
-        <h2 style={styles.heading}>Trusted by Cooperatives Everywhere</h2>
+        <h2 style={styles.heading}>Trusted by the Cooperative Ecosystem</h2>
         <div style={styles.statsBar}>
-          <StatItem label="Co-ops Launched" value={stats.coopsLaunched} />
-          <StatItem label="Worker-Owners" value={stats.workerOwners} />
-          <StatItem label="Distributed" value={stats.distributed} />
-          <StatItem label="Retention Rate" value={stats.retention} />
+          <StatItem label="Conversions Managed" value={stats.conversionsManaged} />
+          <StatItem label="Capital Deployed" value={stats.capitalDeployed} />
+          <StatItem label="Intermediaries" value={stats.intermediaries} />
+          <StatItem label="Co-op Survival Rate" value={stats.coopSurvival} />
         </div>
         <div style={styles.testimonials}>
           {testimonials.map((t) => (

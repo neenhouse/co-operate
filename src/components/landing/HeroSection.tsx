@@ -7,21 +7,22 @@ export default function HeroSection() {
         {/* Left: text content */}
         <div style={styles.textCol}>
           <h1 style={styles.headline}>
-            <span className="gradient-text">Own Your Work.</span>
+            <span className="gradient-text">The Conversion Platform</span>
             <br />
-            Build Together.
+            for Worker Ownership.
           </h1>
           <p style={styles.sub}>
-            The all-in-one platform for launching and running worker-owned cooperatives.
-            Legal templates, governance tools, profit-sharing automation, and democratic decision-making.
+            Manage worker buyouts from prospect to close. Pipeline management, capital matching,
+            and compliance automation for cooperative developers — plus the governance tools
+            for the co-ops they create.
           </p>
           <div style={styles.ctas}>
-            <Link to="/app" className="btn btn-primary btn-lg">
-              Launch Your Co-op
+            <Link to="/app/pipeline" className="btn btn-primary btn-lg">
+              Explore the Pipeline
             </Link>
-            <a href="#features" className="btn btn-ghost btn-lg">
-              See How It Works
-            </a>
+            <Link to="/app" className="btn btn-ghost btn-lg">
+              For Cooperatives
+            </Link>
           </div>
         </div>
 

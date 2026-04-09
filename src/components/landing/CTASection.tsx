@@ -5,16 +5,16 @@ export default function CTASection() {
     <section style={styles.section}>
       <div style={styles.inner}>
         <div style={styles.card}>
-          <h2 style={styles.heading}>Ready to Build Something Together?</h2>
+          <h2 style={styles.heading}>Ready to Scale Worker Ownership?</h2>
           <p style={styles.sub}>
-            Join thousands of worker-owners who are building equitable, democratic businesses with CoOperate.
+            Whether you're managing conversions or running a cooperative, CoOperate is the platform that grows with you.
           </p>
           <div style={styles.ctas}>
-            <Link to="/app" className="btn btn-primary btn-lg">
-              Get Started Free
+            <Link to="/app/pipeline" className="btn btn-primary btn-lg">
+              Start Managing Conversions
             </Link>
-            <Link to="/app/templates" className="btn btn-ghost btn-lg">
-              Browse Templates
+            <Link to="/app" className="btn btn-ghost btn-lg">
+              Explore as a Co-op
             </Link>
           </div>
         </div>

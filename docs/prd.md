@@ -277,15 +277,14 @@ meaningful.
 **Goal:** Convert two audiences: (1) intermediaries evaluating the conversion
 toolkit, (2) workers/owners exploring cooperative formation.
 
-- Hero section with value proposition and primary CTA
-- Feature cards highlighting platform capabilities
-- Social proof: testimonials, co-op success stats, partner logos
+- Hero: "The Conversion Platform for Worker Ownership" — intermediary-first
+  positioning with dual CTAs (Pipeline for intermediaries, App for co-ops)
+- Features: Two-tier layout — intermediary toolkit (pipeline, capital, compliance)
+  above co-op tools (governance, profit sharing, members)
+- Social proof: Intermediary testimonials (Project Equity, NWCDC) + co-op
+  testimonials, conversion-focused stats (850+ conversions, $340M deployed)
+- Dual CTA paths: "Start Managing Conversions" + "Explore as a Co-op"
 - Responsive design, mobile-first
-
-**Current framing gap:** The landing page currently targets workers (B2C).
-The B2B2C channel strategy means the primary conversion target should be
-intermediaries — cooperative developers, attorneys, SBDC advisors. Consider
-a split landing experience or intermediary-specific CTA path.
 
 **Components:** `HeroSection`, `FeaturesSection`, `SocialProof`, `CTASection`
 

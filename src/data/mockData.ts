@@ -197,16 +197,16 @@ export const monthlyFinancials: MonthlyFinancial[] = [
 ];
 
 export const testimonials = [
-  { name: 'Rachel Torres', coopName: 'Green Valley Farm Co-op', quote: 'CoOperate made it possible for us to formalize our cooperative in weeks instead of months. The legal templates alone saved us $15,000 in attorney fees.', initials: 'RT', color: '#ca8a04' },
-  { name: 'Kwame Asante', coopName: 'TechForward Workers Co-op', quote: 'The governance tools transformed how we make decisions. Every member has a voice, and the voting system keeps us accountable and transparent.', initials: 'KA', color: '#16a34a' },
-  { name: 'Mei-Lin Park', coopName: 'Artisan Collective Co-op', quote: 'Profit sharing used to be our biggest source of conflict. Now it\'s automated, fair, and everyone can see exactly how allocations are calculated.', initials: 'MP', color: '#a855f7' },
+  { name: 'Maria Gonzalez', coopName: 'Project Equity', quote: 'CoOperate cut our per-deal administrative time in half. The conversion pipeline lets me manage twice as many buyouts without dropping balls on compliance.', initials: 'MG', color: '#ca8a04' },
+  { name: 'David Chen', coopName: 'Northwest Cooperative Development Center', quote: 'The capital matching tool is a game-changer. Instead of manually screening lenders for each deal, CoOperate pre-qualifies our conversions and generates standardized application packages.', initials: 'DC', color: '#16a34a' },
+  { name: 'Rachel Torres', coopName: 'Green Valley Farm Co-op', quote: 'CoOperate made it possible for us to formalize our cooperative in weeks instead of months. The governance tools keep us accountable and transparent.', initials: 'RT', color: '#a855f7' },
 ];
 
 export const stats = {
-  coopsLaunched: '2,400+',
-  workerOwners: '180K+',
-  distributed: '$2.1B',
-  retention: '94%',
+  conversionsManaged: '850+',
+  capitalDeployed: '$340M',
+  intermediaries: '120+',
+  coopSurvival: '94%',
 };
 
 export const coopInfo = {

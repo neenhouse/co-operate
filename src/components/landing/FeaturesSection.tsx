@@ -1,33 +1,42 @@
-const features = [
+const intermediaryFeatures = [
   {
-    title: 'Legal Templates',
-    description: 'Bylaws, operating agreements, and incorporation documents tailored for cooperatives.',
-    icon: LegalShieldIcon,
+    title: 'Conversion Pipeline',
+    description:
+      'Track every deal from prospect to close. Stage-based pipeline, stakeholder management, document tracking, and compliance checklists.',
+    icon: PipelineFunnelIcon,
   },
   {
-    title: 'Democratic Voting',
-    description: 'Structured proposals, quorum tracking, and transparent decision-making for every member.',
+    title: 'Capital Matching',
+    description:
+      'Connect converting businesses to cooperative-friendly lenders. Eligibility pre-screening, application tracking, and capital stack modeling.',
+    icon: CapitalBankIcon,
+  },
+  {
+    title: 'Compliance Automation',
+    description:
+      'Jurisdiction-specific checklists, regulatory tracking, and document generation. Never miss a state filing or license transfer.',
+    icon: LegalShieldIcon,
+  },
+];
+
+const coopFeatures = [
+  {
+    title: 'Democratic Governance',
+    description:
+      'Structured proposals, quorum tracking, and transparent decision-making for every member.',
     icon: VoteBallotIcon,
   },
   {
     title: 'Profit Sharing',
-    description: 'Configure distribution rules, simulate outcomes, and automate fair allocations.',
+    description:
+      'Configure distribution rules, simulate outcomes, and automate fair allocations.',
     icon: ProfitChartIcon,
   },
   {
     title: 'Member Management',
-    description: 'Onboarding, role assignment, equity tracking, and membership lifecycle tools.',
+    description:
+      'Onboarding, role assignment, equity tracking, and membership lifecycle tools.',
     icon: PeopleCircleIcon,
-  },
-  {
-    title: 'Analytics Dashboard',
-    description: 'Health scores, engagement metrics, financial trends, and exportable reports.',
-    icon: AnalyticsDashIcon,
-  },
-  {
-    title: 'Cooperative Values',
-    description: 'Built on the seven cooperative principles. Equity, transparency, and shared ownership.',
-    icon: HandshakeIcon,
   },
 ];
 
@@ -35,12 +44,27 @@ export default function FeaturesSection() {
   return (
     <section id="features" style={styles.section}>
       <div style={styles.inner}>
-        <h2 style={styles.heading}>Everything Your Co-op Needs</h2>
+        <h2 style={styles.heading}>Built for the Entire Conversion Lifecycle</h2>
         <p style={styles.sub}>
-          From formation to daily operations — tools built specifically for worker-owned cooperatives.
+          Tools for the intermediaries who manage worker buyouts — and the cooperatives they create.
         </p>
+
+        <div style={styles.groupLabel}>For Cooperative Developers</div>
         <div style={styles.grid}>
-          {features.map((f) => (
+          {intermediaryFeatures.map((f) => (
+            <div key={f.title} className="card" style={styles.card}>
+              <div style={styles.iconWrap}>
+                <f.icon />
+              </div>
+              <h3 style={styles.cardTitle}>{f.title}</h3>
+              <p style={styles.cardDesc}>{f.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div style={styles.groupLabel}>For Worker-Owners</div>
+        <div style={styles.grid}>
+          {coopFeatures.map((f) => (
             <div key={f.title} className="card" style={styles.card}>
               <div style={styles.iconWrap}>
                 <f.icon />
@@ -52,6 +76,27 @@ export default function FeaturesSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+function PipelineFunnelIcon() {
+  return (
+    <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <path d="M4 6h24l-8 10v8l-8 2V16L4 6z" stroke="#ca8a04" strokeWidth="2" strokeLinejoin="round" fill="rgba(202,138,4,0.1)" />
+      <path d="M8 6v-1M16 6v-1M24 6v-1" stroke="#ca8a04" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function CapitalBankIcon() {
+  return (
+    <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <path d="M16 3L3 10h26L16 3z" stroke="#ca8a04" strokeWidth="2" strokeLinejoin="round" fill="rgba(202,138,4,0.1)" />
+      <rect x="6" y="12" width="4" height="12" stroke="#ca8a04" strokeWidth="1.5" fill="none" />
+      <rect x="14" y="12" width="4" height="12" stroke="#ca8a04" strokeWidth="1.5" fill="none" />
+      <rect x="22" y="12" width="4" height="12" stroke="#ca8a04" strokeWidth="1.5" fill="none" />
+      <rect x="3" y="24" width="26" height="3" rx="1" stroke="#ca8a04" strokeWidth="1.5" fill="rgba(202,138,4,0.15)" />
+    </svg>
   );
 }
 
@@ -96,29 +141,6 @@ function PeopleCircleIcon() {
   );
 }
 
-function AnalyticsDashIcon() {
-  return (
-    <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none">
-      <rect x="3" y="3" width="26" height="26" rx="3" stroke="#ca8a04" strokeWidth="2"/>
-      <path d="M8 22l5-5 4 3 7-9" stroke="#ca8a04" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <circle cx="8" cy="22" r="1.5" fill="#ca8a04"/>
-      <circle cx="13" cy="17" r="1.5" fill="#ca8a04"/>
-      <circle cx="17" cy="20" r="1.5" fill="#ca8a04"/>
-      <circle cx="24" cy="11" r="1.5" fill="#ca8a04"/>
-    </svg>
-  );
-}
-
-function HandshakeIcon() {
-  return (
-    <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none">
-      <path d="M2 16l6-6 4 2 4-4 4 4 4-2 6 6" stroke="#ca8a04" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M8 18l4 4 4-2 4 2 4-4" stroke="#ca8a04" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M12 22l2 2M16 20l2 2" stroke="#ca8a04" strokeWidth="1.5" strokeLinecap="round"/>
-    </svg>
-  );
-}
-
 const styles: Record<string, React.CSSProperties> = {
   section: {
     padding: '80px 32px',
@@ -139,10 +161,20 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 16,
     marginBottom: 48,
   },
+  groupLabel: {
+    textTransform: 'uppercase' as const,
+    fontSize: 11,
+    fontWeight: 700,
+    letterSpacing: '0.12em',
+    color: '#ca8a04',
+    marginBottom: 20,
+    marginTop: 16,
+  },
   grid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
     gap: 24,
+    marginBottom: 40,
   },
   card: {
     padding: 32,
